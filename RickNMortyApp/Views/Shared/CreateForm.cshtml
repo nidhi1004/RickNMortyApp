@@ -1,0 +1,218 @@
+﻿@model Results
+@{
+    ViewData["Title"] = "Create";
+}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    </head>
+    <body>
+    <div class="main-block">
+      <form action="/Home/Index">
+        <div class="title">
+          <i class="fas fa-pencil-alt"></i> 
+          <h2>Create a Character here</h2>
+        </div>
+        <div class="info">
+          <input type="hidden" asp-for="Id" />
+          <input class="fname" type="text" name="Name" placeholder="Character Name" asp-for="Name">
+           <span asp-validation-for="Name " class="text-danger"></span>
+
+          <input type="text" name="Species" placeholder="Species" asp-for="Species">
+          <span asp-validation-for="Species " class="text-danger"></span>
+
+          <input type="text" name="Type" placeholder="Type" asp-for="Type">
+          <span asp-validation-for="Type " class="text-danger"></span>
+
+          <input type="text" name="Gender" placeholder="Gender" asp-for="Gender">
+          <span asp-validation-for="Gender " class="text-danger"></span>
+
+          <input type="text" name="Status" placeholder="Status" asp-for="Status">
+          <span asp-validation-for="Status " class="text-danger"></span>
+
+          <input type="text" name="Image" placeholder="Image Url" asp-for="Image">
+          <span asp-validation-for="Image " class="text-danger"></span>
+
+          <input type="text" name="OName" placeholder="Planet Name" asp-for="Origin.Name">
+          <span asp-validation-for="Origin.Name" class="text-danger"></span>
+
+          <input type="text" name="lName" placeholder="Location Name" asp-for="Location.Name">
+          <span asp-validation-for="Location.Name " class="text-danger"></span>
+
+           <input type="text" name="Episode" placeholder="Episode" asp-for="Episode">
+          <span asp-validation-for="Episode " class="text-danger"></span>
+        </div>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+  </body>
+
+</html>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Home/Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name " class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species" class="control-label"></label>
+                <input asp-for="Species" class="form-control" />
+                <span asp-validation-for="Species" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Image Url</label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Origin.Name" class="control-label">Planet Name</label>
+                <input asp-for="Origin.Name" class="form-control" />
+                <span asp-validation-for="Origin.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location.Name" class="control-label">Location Name</label>
+                <input asp-for="Location.Name" class="form-control" />
+                <span asp-validation-for="Location.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Episode" class="control-label">Episode(s)</label>
+                <input asp-for="Episode" class="form-control" />
+                <span asp-validation-for="Episode" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" asp-for="Created"value="DateTime.UtcNow"/> 
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    body{
+      background-image :url("https://raw.githubusercontent.com/amandapalma/Rick-Morty-character-browser/master/src/images/rickandmorty-background.png");
+  height: 100%;
+  overflow: hidden;
+        background-size: cover;
+}
+html {
+    font-family: 'Comic Sans MS';
+}
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: #eee;
+      }
+      h1, h2 {
+      text-transform: uppercase;
+      font-weight: 400;
+      }
+      h2 {
+      margin: 0 0 0 8px;
+      }
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.5); 
+      }
+      .left-part, form {
+      padding: 25px;
+      }
+      .left-part {
+      text-align: center;
+      }
+      .fa-graduation-cap {
+      font-size: 72px;
+      }
+      form {
+      background: rgba(0, 0, 0, 0.7); 
+      }
+      .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      }
+      .info {
+      display: flex;
+      flex-direction: column;
+      }
+      input, select {
+      padding: 5px;
+      margin-bottom: 30px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #eee;
+      }
+      input::placeholder {
+      color: #eee;
+      }
+      option:focus {
+      border: none;
+      }
+      option {
+      background: black; 
+      border: none;
+      }
+      .checkbox input {
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+      }
+      .checkbox a {
+      color: #26a9e0;
+      }
+      .checkbox a:hover {
+      color: #85d6de;
+      }
+      .btn-item, button {
+      padding: 10px 5px;
+      margin-top: 20px;
+      border-radius: 5px; 
+      border: none;
+      background: #26a9e0; 
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+      }
+      .btn-item {
+      display: inline-block;
+      margin: 20px 5px 0;
+      }
+      button {
+      width: 100%;
+      }
+      button:hover, .btn-item:hover {
+      background: #85d6de;
+      }
+ </style>

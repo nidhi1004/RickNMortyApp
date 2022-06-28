@@ -1,0 +1,102 @@
+﻿@using RickNMortyApp.Models;
+@model dynamic
+@*@{
+    ViewData["Title"] = "Characters Page";
+}*@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+      <form  action="/Home/CharactersUsingPlanet" method="post">
+    <p>
+        Find by Planet: <input type="text" name="planet" />
+        <input type="submit" value="Filter" />
+    </p>
+    </form>
+
+       <div class="container grid-container">
+          @*await @Html.PartialAsync("CreateForm")*@
+        @foreach (Results chars in Model)
+        {
+           <div class="card-group card-columns rounded">
+         <div class="card text-white">
+      <img class="card-img" src="@chars.Image" alt="@chars.Name" />
+      <div class="card-img-overlay text-white">
+              <a href="/Home/DetailedCharacter/@chars.Id" class="card-link">@chars.Name</a>
+      </div>
+  </div>
+</div>
+
+        }
+    </div>
+    <style>
+.right-side{
+    left: 80%;
+}
+.card-group{
+    height : 191px;
+    width : 191px;
+        }
+.card-img {
+    height: 100%;
+    width: 100%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  padding: 10px;
+  grid-gap: 27px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px;
+  text-align: left;
+  font-size: 30px;
+}
+.card-img-overlay
+{
+    position: absolute;
+    top: 133px;
+    right: 0px;
+    bottom: 0;
+    left: -16px;
+    padding: 1.25rem;
+    width: 140%;
+}
+.card-img-overlay > a {
+    font-size : 15px;
+    text-align: bottom;
+    font-weight: 500;
+    color: white;
+}
+body{
+      background-image :url("https://raw.githubusercontent.com/amandapalma/Rick-Morty-character-browser/master/src/images/rickandmorty-background.png");
+  height: 100%;
+  overflow: hidden;
+
+}
+html {
+    font-family: 'Comic Sans MS';
+
+}
+    </style>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+

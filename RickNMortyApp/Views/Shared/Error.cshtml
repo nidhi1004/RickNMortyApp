@@ -1,0 +1,80 @@
+﻿<html>
+    <body>
+<div className="modalNotFoundRoute">
+      <div className="modalNotFoundRoute__dialog">
+        <div className="modalNotFoundRoute__content">
+          <Link to="/">
+            <span className="modalNotFoundRoute__icon">
+              <button type="button" class="close" aria-label="Close" onclick="location.href='@Url.Action("Characters", "Home")'">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </span>
+          </Link>
+          <div className="speech-bubble-ds">
+            <h1><strong>
+              Route not fooooooound!!!!!!</strong>
+            </h1>
+          </div>
+          <div className="modalNotFoundRoute__imageContainer">
+            <img
+              className="modalNotFoundRoute__imageContainer--image"
+              src=url("https://raw.githubusercontent.com/amandapalma/Rick-Morty-character-browser/master/src/images/fall-jerry.gif")></img>
+          </div>
+        </div>
+      </div>
+    </div>
+    </body>
+</html>
+
+<style>
+body{
+      background-image :url("https://raw.githubusercontent.com/amandapalma/Rick-Morty-character-browser/master/src/images/rickandmorty-background.png");
+  height: 100%;
+  overflow: hidden;
+}
+.modalNotFoundRoute{
+     position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-tertiary;
+}
+.modalNotFoundRoute__dialog{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalNotFoundRoute__content{
+    background-image: url("https://raw.githubusercontent.com/amandapalma/Rick-Morty-character-browser/master/src/images/clouds.gif");
+    padding: 10px 50px 20px 50px;
+    border: solid 8px $color-light;
+    box-shadow: 5px 5px 5px $color-dark;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-size: cover;
+}
+.speech-bubble-ds {
+  background: #efefef;
+  border: 1px solid #a7a7a7;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  line-height: 1.3;
+  margin: 0 auto 40px;
+  max-width: 400px;
+  padding: 15px;
+  position: relative;
+
+  p {
+    margin-bottom: 10px;
+
+    :last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+</style>

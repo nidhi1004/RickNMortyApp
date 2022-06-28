@@ -1,0 +1,103 @@
+﻿@using RickNMortyApp.Models;
+@model Results
+@{
+}
+
+
+      <!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">   
+<link href=”//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css” rel=”stylesheet”>
+</head>
+  <body>
+       <div class="container">  
+        <div class="card-group card-columns rounded ">
+            <div class="card ">
+                  <button type="button" class="close" aria-label="Close" onclick="location.href='@Url.Action("Characters", "Home")'" >
+                           <span aria-hidden="true">&times;</span>
+                  </button>
+                        <h5 class="card-title">@Model.Name</h5>
+                <img class="card-img-top" src="@Model.Image" alt="@Model.Name">
+                <div class="card-body">
+                    <p class=" card-text">Species: @Model.Species</p>
+                        <p class="card-text">Planet: @Model.Origin.Name</p>
+                                            <p class="card-text">Status: 
+                                                @if(@Model.Status =="Alive"){
+                                                    <i class="fa-solid fa-heart-pulse"></i>
+                                                }
+                                                @if(@Model.Status == "Dead"){
+                                                    <i class="fa-solid fa-skull-crossbones"></i>
+                                                }
+                                                @if(@Model.Status=="unknown"){
+                                                    <i class="fa-thin fa-question"></i>
+                                                }
+                                            </p>
+                        <p class="card-text"> Episodes:</p>
+                        @foreach(var epi in @Model.Episode)
+                        {
+                              <div class="card-text">@epi</div>
+                    }
+  </div>
+</div>
+
+    </div>
+    <style>
+.card-group{
+    height: 715px;
+    width: 336px
+}
+.container {
+  grid-template-columns: 100px;
+  gap: 10px;
+  padding: 10px;
+  width: 50%;
+  height: 70%;
+}
+.card-img-top{
+    height: 40%;
+   
+}
+button{
+    right: 0%;
+    left: 80%;
+}
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px;
+  text-align: center;
+  font-size: 30px;
+}
+.card{
+    box-shadow: 5px 5px black;
+    border: black;
+    width: 80%;
+    height:77%;
+}
+.card-body{
+    background: GhostWhite;
+}
+body{
+      background-image :url("https://raw.githubusercontent.com/amandapalma/Rick-Morty-character-browser/master/src/images/rickandmorty-background.png");
+  height: 100%;
+  overflow: hidden;
+
+}
+html * {
+    font-family: 'Comic Sans MS';
+
+}
+    </style>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
